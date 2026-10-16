@@ -1,194 +1,47 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio | Web Developer</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <a href="#home" class="logo">My<span>Portfolio.</span></a>
+    <div class="calculator">
+        <h1>Calculator</h1>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <input type="text" id="display" readonly>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-        </nav>
-    </header>
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">⌫</button>
+            <button onclick="appendValue('%')">%</button>
+            <button class="operator" onclick="appendValue('/')">÷</button>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-                <h1>Hi, I'm a <span>Web Developer</span></h1>
-                <h2>BSIT Student | Developer | Learner</h2>
-                <p class="hero-description">
-                    I create responsive, user-friendly websites and enjoy
-                    turning creative ideas into real digital experiences.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary-btn">Explore My Work</a>
-                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
-                </div>
-            </div>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button class="operator" onclick="appendValue('*')">×</button>
 
-            <div class="hero-art" aria-hidden="true">
-                <div class="orbit orbit-one"></div>
-                <div class="orbit orbit-two"></div>
-                <div class="code-card">
-                    <span class="code-dot"></span>
-                    <span class="code-dot"></span>
-                    <span class="code-dot"></span>
-                    <p class="code-purple">const developer = {</p>
-                    <p>&nbsp;&nbsp;skills: <span class="code-gold">["HTML", "CSS"]</span>,</p>
-                    <p>&nbsp;&nbsp;passion: <span class="code-green">"Creating"</span></p>
-                    <p class="code-purple">};</p>
-                    <p class="code-comment">// Always learning...</p>
-                </div>
-            </div>
-        </section>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button class="operator" onclick="appendValue('-')">−</button>
 
-        <section class="section about-section" id="about">
-            <div class="section-heading">
-                <p class="eyebrow">GET TO KNOW ME</p>
-                <h2>About <span>Me</span></h2>
-            </div>
-            <div class="about-content">
-                <div class="about-icon">{"</>"}</div>
-                <div>
-                    <h3>A Passionate Learner & Developer</h3>
-                    <p>
-                        I am a Bachelor of Science in Information Technology
-                        student who is passionate about web development and
-                        technology. I enjoy learning new skills, solving
-                        problems, and building projects that are both useful
-                        and visually appealing.
-                    </p>
-                    <p>
-                        My goal is to continue improving my development skills
-                        and create meaningful digital experiences.
-                    </p>
-                </div>
-            </div>
-        </section>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="operator" onclick="appendValue('+')">+</button>
 
-        <section class="section skills-section" id="skills">
-            <div class="section-heading">
-                <p class="eyebrow">WHAT I WORK WITH</p>
-                <h2>My <span>Skills</span></h2>
-                <p>Technologies and tools I am learning and using.</p>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-card"><span>🌐</span><h3>HTML5</h3><p>Web Structure</p></div>
-                <div class="skill-card"><span>🎨</span><h3>CSS3</h3><p>Styling & Layout</p></div>
-                <div class="skill-card"><span>⚡</span><h3>JavaScript</h3><p>Web Interactivity</p></div>
-                <div class="skill-card"><span>🐍</span><h3>Python</h3><p>Programming</p></div>
-                <div class="skill-card"><span>🚀</span><h3>Django</h3><p>Web Development</p></div>
-                <div class="skill-card"><span>🗄️</span><h3>SQL</h3><p>Database Basics</p></div>
-            </div>
-        </section>
-
-        <section class="section projects-section" id="projects">
-            <div class="section-heading">
-                <p class="eyebrow">SOME THINGS I HAVE BUILT</p>
-                <h2>My <span>Projects</span></h2>
-                <p>A selection of my practice and learning projects.</p>
-            </div>
-
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-visual gallery-visual">▦</div>
-                    <div class="project-info">
-                        <p class="project-type">HTML · CSS · JavaScript</p>
-                        <h3>Image Gallery</h3>
-                        <p>A responsive image gallery with categories, navigation, and an image lightbox.</p>
-                        <a href="#contact" class="project-link">Ask about this project ↗</a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-visual calculator-visual">±</div>
-                    <div class="project-info">
-                        <p class="project-type">HTML · CSS · JavaScript</p>
-                        <h3>Smart Calculator</h3>
-                        <p>A simple interactive calculator with a clean interface and keyboard support.</p>
-                        <a href="#contact" class="project-link">Ask about this project ↗</a>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-visual web-visual">⌘</div>
-                    <div class="project-info">
-                        <p class="project-type">HTML · CSS · Responsive Design</p>
-                        <h3>Personal Portfolio</h3>
-                        <p>A personal website showcasing my skills, projects, and learning journey.</p>
-                        <a href="#contact" class="project-link">Ask about this project ↗</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="section resume-section" id="resume">
-            <div class="resume-box">
-                <div>
-                    <p class="eyebrow">MY EXPERIENCE & EDUCATION</p>
-                    <h2>Interested in my <span>Journey?</span></h2>
-                    <p>
-                        My resume will share more about my education, skills,
-                        projects, and professional goals.
-                    </p>
-                
-</div>
-<a href="files/resume.pdf" class="btn primary-btn" download>
-    Download My Resume
-</a>
-</div>
-
-        </section>
-
-        <section class="section contact-section" id="contact">
-            <div class="section-heading">
-                <p class="eyebrow">LET'S CONNECT</p>
-                <h2>Contact <span>Me</span></h2>
-                <p>Have a project idea or want to connect? Feel free to reach out.</p>
-            </div>
-
-            <div class="contact-card">
-                <div class="contact-item">
-                    <span>✉</span>
-                    <div><h3>Email</h3><p>amjadmehral@gmail.com</p></div>
-                </div>
-                <div class="contact-item">
-                    <span>💼</span>
-                    <div><h3>LinkedIn</h3><p>https://www.linkedin.com/in/mehral-amjad-b9097b348/</p></div>
-                </div>
-                <div class="contact-item">
-                    <span>💻</span>
-                    <div><h3>GitHub</h3><p>https://github.com/MEHRAL158</p></div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>Designed & Built with <span>♥</span> by a Web Developer</p>
-        <p>© <span id="year"></span> My Portfolio. All rights reserved.</p>
-    </footer>
-
-    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+            <button class="zero" onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button class="equals" onclick="calculate()">=</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+```

@@ -1,71 +1,56 @@
 
-// ===== MOBILE NAVIGATION =====
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+const display = document.getElementById("display");
 
-menuToggle.addEventListener("click", function () {
-    navLinks.classList.toggle("open");
+function appendValue(value) {
+    display.value += value;
+}
 
-    const isOpen = navLinks.classList.contains("open");
-    menuToggle.setAttribute("aria-expanded", isOpen);
-    menuToggle.textContent = isOpen ? "✕" : "☰";
-});
+function clearDisplay() {
+    display.value = "";
+}
 
-// Close mobile menu after clicking a navigation link
-document.querySelectorAll(".nav-links a").forEach(function (link) {
-    link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
-    });
-});
+function deleteLast() {
+    display.value = display.value.slice(0, -1);
+}
 
-// ===== CURRENT YEAR IN FOOTER =====
-const yearElement = document.getElementById("year");
+function calculate() {
+    try {
+        if (display.value === "") {
+            return;
+        }
 
-yearElement.textContent = new Date().getFullYear();
+        let expression = display.value.replace(/%/g, "/100");
 
-// ===== BACK TO TOP BUTTON =====
-const backToTop = document.getElementById("backToTop");
+        display.value = eval(expression);
+    } catch {
+        display.value = "Error";
+    }
+}
 
-window.addEventListener("scroll", function () {
-    if (window.scrollY > 300) {
-        backToTop.classList.add("visible");
-    } else {
-        backToTop.classList.remove("visible");
+document.addEventListener("keydown", function (event) {
+    const key = event.key;
+
+    if (
+        (key >= "0" && key <= "9") ||
+        key === "+" ||
+        key === "-" ||
+        key === "*" ||
+        key === "/" ||
+        key === "." ||
+        key === "%"
+    ) {
+        appendValue(key);
+    }
+
+    if (key === "Enter" || key === "=") {
+        calculate();
+    }
+
+    if (key === "Backspace") {
+        deleteLast();
+    }
+
+    if (key === "Escape") {
+        clearDisplay();
     }
 });
-
-backToTop.addEventListener("click", function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
-
-// ===== REVEAL SECTIONS ON SCROLL =====
-const sections = document.querySelectorAll(".section");
-
-if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-        function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("section-visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.08
-        }
-    );
-
-    sections.forEach(function (section) {
-        observer.observe(section);
-    });
-} else {
-    sections.forEach(function (section) {
-        section.classList.add("section-visible");
-    });
-}
