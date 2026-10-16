@@ -1,0 +1,87 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image Gallery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Image Gallery</h1>
+        <p>Explore beautiful moments through different categories</p>
+    </header>
+
+    <!-- Category Buttons -->
+    <nav class="filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="nature">Nature</button>
+        <button class="filter-btn" data-category="city">Cities</button>
+        <button class="filter-btn" data-category="animal">Animals</button>
+        <button class="filter-btn" data-category="travel">Travel</button>
+    </nav>
+
+    <!-- Gallery -->
+    <main class="gallery">
+
+        <div class="gallery-item" data-category="nature">
+            <img src="images/nature1.jpg" alt="Nature Image 1">
+        </div>
+
+        <div class="gallery-item" data-category="nature">
+            <img src="images/nature2.jpg" alt="Nature Image 2">
+        </div>
+
+        <div class="gallery-item" data-category="city">
+            <img src="images/city1.jpg" alt="City Image 1">
+        </div>
+
+        <div class="gallery-item" data-category="city">
+            <img src="images/city2.jpg" alt="City Image 2">
+        </div>
+
+        <div class="gallery-item" data-category="animal">
+            <img src="images/animal1.jpg" alt="Animal Image 1">
+        </div>
+
+        <div class="gallery-item" data-category="animal">
+            <img src="images/animal2.jpg" alt="Animal Image 2">
+        </div>
+
+        <div class="gallery-item" data-category="travel">
+            <img src="images/travel1.jpg" alt="Travel Image 1">
+        </div>
+
+        <div class="gallery-item" data-category="travel">
+            <img src="images/travel2.jpg" alt="Travel Image 2">
+        </div>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+
+        <button class="close-btn" id="closeBtn">&times;</button>
+
+        <button class="prev-btn" id="prevBtn">&#10094;</button>
+
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="Gallery Preview">
+            <p id="imageCounter">1 / 8</p>
+        </div>
+
+        <button class="next-btn" id="nextBtn">&#10095;</button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```

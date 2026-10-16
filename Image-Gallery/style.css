@@ -1,0 +1,330 @@
+```css
+/* ================================
+   General Styles
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* ================================
+   Header
+================================ */
+
+header {
+    text-align: center;
+    padding: 60px 20px 35px;
+}
+
+header h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+header p {
+    color: #cbd5e1;
+    font-size: 17px;
+}
+
+
+/* ================================
+   Filter Buttons
+================================ */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px auto 40px;
+    padding: 0 20px;
+}
+
+.filter-btn {
+    border: none;
+    background: #1e293b;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: #334155;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: #3b82f6;
+    color: #ffffff;
+}
+
+
+/* ================================
+   Gallery
+================================ */
+
+.gallery {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 60px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+
+/* ================================
+   Gallery Items
+================================ */
+
+.gallery-item {
+    height: 250px;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #1e293b;
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.5s ease,
+                filter 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+    filter: brightness(0.75);
+}
+
+
+/* ================================
+   Lightbox
+================================ */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.92);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+
+/* ================================
+   Lightbox Content
+================================ */
+
+.lightbox-content {
+    text-align: center;
+    max-width: 85%;
+    max-height: 90%;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 75vh;
+
+    border-radius: 12px;
+
+    object-fit: contain;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+#imageCounter {
+    margin-top: 15px;
+    color: #e2e8f0;
+    font-size: 16px;
+}
+
+
+/* ================================
+   Lightbox Buttons
+================================ */
+
+.close-btn,
+.prev-btn,
+.next-btn {
+    position: absolute;
+
+    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover,
+.prev-btn:hover,
+.next-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+
+/* Close Button */
+
+.close-btn {
+    top: 25px;
+    right: 35px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    font-size: 32px;
+}
+
+
+/* Previous Button */
+
+.prev-btn {
+    left: 30px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+}
+
+
+/* Next Button */
+
+.next-btn {
+    right: 30px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+}
+
+
+/* ================================
+   Responsive Design - Tablet
+================================ */
+
+@media (max-width: 900px) {
+
+    header h1 {
+        font-size: 40px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ================================
+   Responsive Design - Mobile
+================================ */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 40px 15px 25px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .filters {
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+
+    .filter-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .gallery {
+        width: 92%;
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .gallery-item {
+        height: 230px;
+    }
+
+    .prev-btn {
+        left: 12px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .next-btn {
+        right: 12px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .close-btn {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+}
+```
