@@ -1,110 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #141e30, #243b55);
+  min-height: 100vh;
+  padding: 30px 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #f8f7ff;
+  background: linear-gradient(135deg, #100b20, #20133b, #101827);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.calculator {
-    width: 340px;
-    padding: 25px;
-    border-radius: 20px;
-    background: #1e1e1e;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+.player {
+  width: 100%;
+  max-width: 470px;
+  padding: 25px;
+  border: 1px solid #ffffff1c;
+  border-radius: 24px;
+  background: #171326;
+  box-shadow: 0 20px 60px #0006;
+}
+
+.topbar,
+.playlist-heading,
+.time-row,
+.volume-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  font-size: 23px;
+  font-weight: 700;
+  color: #d6b5ff;
+}
+
+.tag,
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b5a5d7;
+}
+
+.now-playing {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.album-art {
+  height: 220px;
+  width: 220px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #7754d8, #e16aaf, #f5bb86);
+  box-shadow: 0 12px 35px #a46bff35;
+}
+
+.vinyl {
+  width: 130px;
+  height: 130px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 48px;
+  background: repeating-radial-gradient(circle, #292036 0 5px, #413151 6px 9px);
+  border: 7px solid #20172d;
+  animation: spin 8s linear infinite;
+  animation-play-state: paused;
+}
+
+.player.is-playing .vinyl {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.eyebrow {
+  margin-bottom: 8px;
 }
 
 h1 {
-    text-align: center;
-    color: white;
-    margin-bottom: 20px;
-    font-size: 28px;
+  font-size: 24px;
+  overflow-wrap: anywhere;
 }
 
-#display {
-    width: 100%;
-    height: 70px;
-    margin-bottom: 20px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 12px;
-    background: #f5f5f5;
-    color: #222;
-    font-size: 30px;
-    text-align: right;
-    outline: none;
+.artist {
+  color: #b7abc9;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+.progress-area {
+  margin-top: 25px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #c59aff;
+  cursor: pointer;
+}
+
+.time-row {
+  color: #b7abc9;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  margin: 20px 0;
 }
 
 button {
-    height: 60px;
-    border: none;
-    border-radius: 12px;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-    background: #333;
-    color: white;
-    transition: 0.2s;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
 }
 
-button:hover {
-    transform: scale(1.05);
-    background: #444;
+.controls button {
+  color: white;
+  background: transparent;
+  font-size: 21px;
 }
 
-button:active {
-    transform: scale(0.95);
+.controls button:hover {
+  transform: scale(1.12);
+  color: #d6b5ff;
 }
 
-.operator {
-    background: #ff9500;
+.controls .play-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: #201331;
+  background: #d6b5ff;
+  font-size: 22px;
 }
 
-.operator:hover {
-    background: #e68900;
+.volume-row {
+  color: #c5bbd4;
+  font-size: 12px;
 }
 
-.clear {
-    background: #e74c3c;
+.volume-row input {
+  max-width: 180px;
 }
 
-.clear:hover {
-    background: #c0392b;
+.autoplay {
+  display: block;
+  margin-top: 18px;
+  color: #b7abc9;
+  font-size: 12px;
+  cursor: pointer;
 }
 
-.equals {
-    background: #27ae60;
+.autoplay input {
+  accent-color: #c59aff;
+  margin-right: 5px;
 }
 
-.equals:hover {
-    background: #219150;
+.playlist-section {
+  margin-top: 30px;
+  border-top: 1px solid #ffffff18;
+  padding-top: 20px;
 }
 
-.zero {
-    grid-column: span 2;
+.playlist-heading h2 {
+  font-size: 17px;
+}
+
+.playlist-heading span {
+  color: #b7abc9;
+  font-size: 12px;
+}
+
+.playlist {
+  display: grid;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.track {
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  border-radius: 12px;
+  color: white;
+  background: #ffffff08;
+}
+
+.track:hover,
+.track.active {
+  background: #a77ce52b;
+}
+
+.track-number {
+  color: #c8a6ff;
+  font-weight: 600;
+}
+
+.track-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.track-details strong,
+.track-details small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.track-details strong {
+  font-size: 13px;
+}
+
+.track-details small {
+  color: #b7abc9;
+  margin-top: 3px;
+}
+
+.track-status {
+  color: #d6b5ff;
+}
+
+footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 11px;
+  color: #8e829f;
 }
 
 @media (max-width: 400px) {
-    .calculator {
-        width: 90%;
-        padding: 20px;
-    }
-
-    button {
-        height: 55px;
-    }
+  .player { padding: 18px; }
+  .album-art { width: 190px; height: 190px; }
+  .tag { font-size: 8px; }
 }
